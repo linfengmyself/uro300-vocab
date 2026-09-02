@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>泌尿外科高频考词300 · 艾宾浩斯背单词</title>
+<style>
+  :root{--bg:#f2f5fa;--card:#fff;--ink:#1c2433;--sub:#6b7688;--blue:#2f6bff;--blue2:#eaf0ff;
+        --green:#12a15d;--amber:#e6a23c;--red:#e05252;--line:#e3e8f0;--r:14px;}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{background:var(--bg);color:var(--ink);font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif;min-height:100vh}
+  .wrap{max-width:720px;margin:0 auto;padding:14px 14px 60px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 4px}
+  header h1{font-size:19px;line-height:1.35}
+  header h1 small{display:block;font-size:12px;color:var(--sub);font-weight:400;margin-top:2px}
+  .hud{display:flex;gap:8px;font-size:12px}
+  .hud .c{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 10px;white-space:nowrap}
+  .hud .c b{color:var(--blue)}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:12px}
+  .seg{display:flex;background:#e8edf5;border-radius:10px;padding:3px;gap:3px;margin-bottom:12px}
+  .seg button{flex:1;border:0;background:transparent;padding:8px 0;border-radius:8px;font-size:13px;color:var(--sub);cursor:pointer}
+  .seg button.on{background:#fff;color:var(--blue);font-weight:600;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+  .chips button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:12.5px;cursor:pointer;color:#444}
+  .chips button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+  .chips .s5{color:#c0392b}.chips .s5.on{background:#c0392b;border-color:#c0392b}
+  .chips .s4{color:#d35400}.chips .s4.on{background:#d35400;border-color:#d35400}
+  .chips .s3{color:#2c7ac9}.chips .s3.on{background:#2c7ac9;border-color:#2c7ac9}
+  .chips .s2{color:#777}.chips .s2.on{background:#777;border-color:#777}
+  .row{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-size:13px;color:var(--sub)}
+  .row select{padding:5px 8px;border:1px solid var(--line);border-radius:8px;font-size:13px;background:#fff}
+  .row .sp{flex:1}
+  .btn{display:inline-block;border:0;border-radius:10px;padding:11px 18px;font-size:14.5px;cursor:pointer;color:#fff;background:var(--blue);font-weight:600}
+  .btn.big{display:block;width:100%;padding:14px;font-size:16px;margin-bottom:10px}
+  .btn.gray{background:#eef2f8;color:var(--sub);font-weight:500}
+  .btn.mini{background:#fff;color:var(--blue);border:1px solid #c9d8ff;padding:6px 12px;font-size:12.5px;border-radius:8px}
+  .btn.danger{background:#fff;color:var(--red);border:1px solid #f0c4c4}
+  .btn[disabled]{opacity:.5;cursor:default}
+  .desc{font-size:12.5px;color:var(--sub);line-height:1.8}
+  #session{display:none}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px 20px;text-align:center;margin-bottom:12px;min-height:280px;display:flex;flex-direction:column;justify-content:center}
+  .card .meta{font-size:12px;color:var(--sub);margin-bottom:12px}
+  .card .prompt{font-size:27px;line-height:1.5;word-break:break-word;font-weight:600}
+  .card .prompt.cn{font-size:30px}
+  .speak{border:0;background:var(--blue2);color:var(--blue);width:42px;height:42px;border-radius:50%;font-size:19px;cursor:pointer;margin:12px auto 2px}
+  #answer{display:none;margin-top:10px;padding-top:14px;border-top:1px dashed var(--line)}
+  #answer .ans{font-size:23px;color:#0b6e3a;line-height:1.6;word-break:break-word;font-weight:600}
+  #answer .ans.en{color:var(--blue);font-size:24px}
+  .acts{display:flex;gap:10px;margin-top:14px}
+  .acts button{flex:1;border:0;border-radius:10px;padding:12px 4px;font-size:15px;cursor:pointer;color:#fff;font-weight:600}
+  .acts button.no{background:var(--red)}.acts button.fz{background:var(--amber)}.acts button.ok{background:var(--green)}
+  .prog{height:6px;background:#e8edf5;border-radius:4px;overflow:hidden;margin-bottom:14px}
+  .prog i{display:block;height:100%;width:0;background:var(--blue);transition:width .2s}
+  .kbd-hint{font-size:11.5px;color:#9aa4b5;text-align:center;margin:10px 0}
+  .h2{font-size:15px;font-weight:700;margin-bottom:10px}
+  .statg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+  .statg .s{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px;text-align:center}
+  .statg .s b{display:block;font-size:22px;color:var(--blue);margin-bottom:2px}
+  .statg .s span{font-size:12px;color:var(--sub)}
+  .bar-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);margin-bottom:7px}
+  .bar-row .nm{width:64px;flex:none}
+  .bar-row .bk{flex:1;height:8px;background:#eef1f6;border-radius:5px;overflow:hidden}
+  .bar-row .bk i{display:block;height:100%;background:var(--blue);min-width:2px}
+  .bar-row b{width:58px;text-align:right;font-weight:600}
+  .foot{font-size:11.5px;color:#9aa4b5;text-align:center;margin-top:18px;line-height:1.8}
+  details{margin-top:12px} summary{cursor:pointer;font-size:13px;color:var(--sub)}
+  details .desc{padding:8px 0 2px}
+  #toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:rgba(20,26,38,.92);color:#fff;font-size:13px;padding:10px 18px;border-radius:10px;display:none;z-index:9}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>泌尿外科高频考词 300<small>艾宾浩斯遗忘曲线 · 面试英译中速记</small></h1>
+    <div class="hud"><div class="c">到期 <b id="hudDue">0</b></div><div class="c">掌握 <b id="hudDone">0</b></div></div>
+  </header>
+
+  <div id="home">
+    <div class="statg">
+      <div class="s"><b id="stLearned">0</b><span>已学习</span></div>
+      <div class="s"><b id="stDone">0</b><span>已掌握</span></div>
+      <div class="s"><b id="stNew">300</b><span>未学习</span></div>
+    </div>
+
+    <div class="panel">
+      <div class="seg" id="modeSeg">
+        <button data-mode="e2c" class="on">英 → 中</button>
+        <button data-mode="c2e">中 → 英</button>
+      </div>
+      <div class="chips" id="filterChips">
+        <button data-f="all" class="on">全部</button>
+        <button data-f="5" class="s5">五星 1–60</button>
+        <button data-f="4" class="s4">四星 61–140</button>
+        <button data-f="3" class="s3">三星 141–220</button>
+        <button data-f="2" class="s2">二星 221–300</button>
+      </div>
+      <div class="row">
+        <span>每组新词</span>
+        <select id="batchSel">
+          <option value="10">10 个</option>
+          <option value="20" selected>20 个</option>
+          <option value="30">30 个</option>
+          <option value="50">50 个</option>
+        </select>
+        <span class="sp"></span>
+        <button class="btn mini" id="revTop">▶ 复习到期词</button>
+      </div>
+      <button class="btn big" id="learnTop">📖 开始学习新词</button>
+      <div class="desc" id="dueHint">今天没有到期待复习的词，可以开始学习新词。</div>
+    </div>
+
+    <div class="panel">
+      <div class="h2">分档进度</div>
+      <div id="bars"></div>
+      <div class="row" style="margin:12px 0 0">
+        <button class="btn mini" id="btnExport">导出进度</button>
+        <button class="btn mini" id="btnImport">导入进度</button>
+        <input type="file" id="imp" accept=".json" style="display:none">
+        <span class="sp"></span>
+        <button class="btn mini danger" id="btnReset">清空进度</button>
+      </div>
+    </div>
+
+    <details>
+      <summary>📌 艾宾浩斯复习节点说明</summary>
+      <div class="desc">
+        每个词按 <b>5 分钟 → 30 分钟 → 12 小时 → 1 天 → 2 天 → 4 天 → 7 天 → 15 天</b> 共 8 个节点复习，
+        全部通过即进入「已掌握」。评分：<span style="color:#12a15d">记住了</span> 进入下一节点；
+        <span style="color:#e6a23c">模糊</span> 5 分钟后重考一次（节点不变）；<span style="color:#e05252">忘了</span> 从 5 分钟节点重新开始。
+        进度保存在<b>本浏览器 localStorage</b>，换设备可用「导出/导入」迁移。
+      </div>
+    </details>
+  </div>
+
+  <div id="session">
+    <div class="prog"><i id="progBar"></i></div>
+    <div class="card">
+      <div class="meta" id="cardMeta"></div>
+      <div class="prompt" id="prompt"></div>
+      <button class="speak" id="speakBtn" title="朗读英文">🔊</button>
+      <div id="answer">
+        <div class="ans" id="ansText"></div>
+        <div class="acts" id="actsBox"></div>
+      </div>
+    </div>
+    <div class="kbd-hint">空格 = 显示答案 · 1 忘了 · 2 模糊 · 3 记住了（新学：空格显示答案后按 3/1）</div>
+    <button class="btn gray" style="width:100%" id="exitBtn">← 暂存并返回</button>
+  </div>
+
+  <div id="done" style="display:none">
+    <div class="card" style="min-height:0">
+      <div class="h2" id="doneTitle"></div>
+      <div class="desc" id="doneBody" style="margin:6px 0 16px"></div>
+      <button class="btn big" id="doneBtn1">📖 再学一批新词</button>
+      <button class="btn big" style="background:var(--green)" id="doneBtn2">▶ 复习到期词</button>
+      <button class="btn gray big" id="doneBtn3">返回首页</button>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+</div>
+
+<script>
+var WORDS = [[1,"hematuria","血尿"],[2,"gross hematuria","肉眼血尿"],[3,"microscopic hematuria","镜下血尿"],[4,"painless hematuria","无痛性血尿"],[5,"intermittent hematuria","间歇性血尿"],[6,"total hematuria","全程血尿"],[7,"initial hematuria","起始段血尿"],[8,"terminal hematuria","终末段血尿"],[9,"bladder cancer","膀胱癌"],[10,"bladder tumor","膀胱肿瘤"],[11,"urothelial carcinoma","尿路上皮癌"],[12,"transitional cell carcinoma","移行细胞癌"],[13,"urinary stone / urolithiasis","泌尿系结石"],[14,"renal calculus","肾结石"],[15,"ureteral calculus","输尿管结石"],[16,"bladder calculus","膀胱结石"],[17,"upper urinary tract","上尿路"],[18,"lower urinary tract","下尿路"],[19,"urinary tract obstruction","尿路梗阻"],[20,"hydronephrosis","肾积水"],[21,"benign prostatic hyperplasia (BPH)","良性前列腺增生"],[22,"urinary retention","尿潴留"],[23,"acute urinary retention","急性尿潴留"],[24,"chronic urinary retention","慢性尿潴留"],[25,"renal cell carcinoma (RCC)","肾细胞癌"],[26,"flank pain","腰痛"],[27,"abdominal mass","腹部肿块"],[28,"classic triad(hematuria + flank pain + abdominal mass)","肾癌三联征"],[29,"TURBT(transurethral resection of bladder tumor)","经尿道膀胱肿瘤切除术"],[30,"TURP(transurethral resection of the prostate)","经尿道前列腺电切术"],[31,"ESWL(extracorporeal shock wave lithotripsy)","体外冲击波碎石术"],[32,"PCNL(percutaneous nephrolithotomy)","经皮肾镜取石术"],[33,"ureteroscopy","输尿管镜检查/输尿管镜术"],[34,"flexible ureteroscopy","输尿管软镜"],[35,"cystoscopy","膀胱镜检查"],[36,"urine cytology","尿脱落细胞学检查"],[37,"creatinine","肌酐"],[38,"estimated glomerular filtration rate (eGFR)","估算肾小球滤过率"],[39,"post-void residual urine (PVR)","残余尿"],[40,"nocturia","夜尿增多"],[41,"urinary frequency","尿频"],[42,"urinary urgency","尿急"],[43,"dysuria","排尿困难"],[44,"weak urinary stream","尿线变细"],[45,"dribbling","尿后滴沥"],[46,"BCG(Bacillus Calmette-Guérin)","卡介苗（膀胱灌注）"],[47,"non-muscle-invasive bladder cancer (NMIBC)","非肌层浸润性膀胱癌"],[48,"muscle-invasive bladder cancer (MIBC)","肌层浸润性膀胱癌"],[49,"carcinoma in situ (CIS)","原位癌"],[50,"prostate-specific antigen (PSA)","前列腺特异性抗原"],[51,"digital rectal examination (DRE)","直肠指检"],[52,"prostate cancer","前列腺癌"],[53,"prostate biopsy","前列腺穿刺活检"],[54,"renal function","肾功能"],[55,"urethra","尿道"],[56,"ureter","输尿管"],[57,"renal pelvis","肾盂"],[58,"urinary bladder","膀胱"],[59,"prostate","前列腺"],[60,"testis","睾丸"],[61,"epididymis","附睾"],[62,"urinary tract infection (UTI)","泌尿系感染"],[63,"cystitis","膀胱炎"],[64,"pyelonephritis","肾盂肾炎"],[65,"prostatitis","前列腺炎"],[66,"chronic prostatitis / chronic pelvic pain syndrome (CP/CPPS)","慢性前列腺炎/慢性盆腔疼痛综合征"],[67,"pyuria","脓尿"],[68,"bacteriuria","菌尿"],[69,"urine culture","尿培养"],[70,"urosepsis","尿源性脓毒症"],[71,"renal colic","肾绞痛"],[72,"uremia","尿毒症"],[73,"urinalysis","尿常规"],[74,"urine sediment","尿沉渣（镜检）"],[75,"ultrasonography","超声检查"],[76,"computed tomography (CT)","计算机断层扫描"],[77,"CT urography (CTU)","泌尿系CT造影"],[78,"magnetic resonance imaging (MRI)","磁共振成像"],[79,"intravenous urography (IVU)","静脉尿路造影"],[80,"catheterization","导尿术"],[81,"indwelling catheter","留置导尿管"],[82,"double-J stent(ureteral stent)","双J管（输尿管支架管）"],[83,"nephrostomy","肾造瘘术"],[84,"suprapubic cystostomy","耻骨上膀胱造瘘术"],[85,"nephrectomy","肾切除术"],[86,"radical nephrectomy","根治性肾切除术"],[87,"partial nephrectomy","肾部分切除术"],[88,"radical cystectomy","根治性膀胱切除术"],[89,"urinary diversion","尿流改道术"],[90,"ileal conduit","回肠膀胱术"],[91,"neobladder","原位新膀胱"],[92,"lower urinary tract symptoms (LUTS)","下尿路症状"],[93,"International Prostate Symptom Score (IPSS)","国际前列腺症状评分"],[94,"uroflowmetry","尿流率测定"],[95,"maximum flow rate (Qmax)","最大尿流率"],[96,"bladder outlet obstruction (BOO)","膀胱出口梗阻"],[97,"urinary incontinence","尿失禁"],[98,"stress urinary incontinence (SUI)","压力性尿失禁"],[99,"overactive bladder (OAB)","膀胱过度活动症"],[100,"neurogenic bladder","神经源性膀胱"],[101,"urinary tract tuberculosis","泌尿系结核"],[102,"testicular torsion","睾丸扭转"],[103,"varicocele","精索静脉曲张"],[104,"hydrocele","鞘膜积液"],[105,"cryptorchidism","隐睾"],[106,"male infertility","男性不育症"],[107,"semen analysis","精液分析"],[108,"azoospermia","无精子症"],[109,"oligospermia","少精子症"],[110,"erectile dysfunction (ED)","勃起功能障碍"],[111,"Gleason score Gleason","评分"],[112,"free/total PSA ratio","游离/总PSA比值"],[113,"stone composition","结石成分"],[114,"calcium oxalate stone","草酸钙结石"],[115,"uric acid stone","尿酸结石"],[116,"struvite stone(infection stone)","感染性结石（磷酸铵镁结石）"],[117,"cystine stone","胱氨酸结石"],[118,"hypercalciuria","高钙尿症"],[119,"lithotripsy","碎石术"],[120,"stone-free rate (SFR)","结石清除率"],[121,"hydroureter","输尿管积水"],[122,"ureteral stricture","输尿管狭窄"],[123,"acute kidney injury (AKI)","急性肾损伤"],[124,"chronic kidney disease (CKD)","慢性肾脏病"],[125,"hemodialysis","血液透析"],[126,"serum electrolyte","血清电解质"],[127,"metabolic acidosis","代谢性酸中毒"],[128,"ureteropelvic junction obstruction (UPJO)","肾盂输尿管连接部梗阻"],[129,"vesicoureteral reflux (VUR)","膀胱输尿管反流"],[130,"recurrence","复发"],[131,"metastasis","转移"],[132,"lymph node metastasis","淋巴结转移"],[133,"distant metastasis","远处转移"],[134,"diagnosis","诊断"],[135,"differential diagnosis","鉴别诊断"],[136,"staging","分期"],[137,"grading","分级"],[138,"prognosis","预后"],[139,"survival","生存"],[140,"follow-up","随访"],[141,"squamous cell carcinoma","鳞状细胞癌"],[142,"adenocarcinoma","腺癌"],[143,"tumor marker","肿瘤标志物"],[144,"biomarker","生物标志物"],[145,"molecular marker","分子标志物"],[146,"pathology","病理学"],[147,"biopsy","活检"],[148,"specimen","标本"],[149,"immunohistochemistry (IHC)","免疫组化"],[150,"hematoxylin-eosin (HE) staining","苏木精-伊红染色"],[151,"muscularis propria","固有肌层"],[152,"lamina propria","固有层"],[153,"detrusor muscle","逼尿肌"],[154,"intravesical instillation","膀胱内灌注"],[155,"neoadjuvant therapy","新辅助治疗"],[156,"adjuvant therapy","辅助治疗"],[157,"chemotherapy","化疗"],[158,"radiotherapy","放疗"],[159,"immunotherapy","免疫治疗"],[160,"immune checkpoint inhibitor","免疫检查点抑制剂"],[161,"PD-1 / PD-L1","程序性死亡受体1/配体1"],[162,"targeted therapy","靶向治疗"],[163,"tyrosine kinase inhibitor (TKI)","酪氨酸激酶抑制剂"],[164,"antibody-drug conjugate (ADC)","抗体偶联药物"],[165,"HER2 expression HER2","表达"],[166,"tumor immune microenvironment","肿瘤免疫微环境"],[167,"immune infiltration","免疫浸润"],[168,"macrophage polarization","巨噬细胞极化"],[169,"M1 / M2 macrophages M1/M2","型巨噬细胞"],[170,"tumor-infiltrating lymphocytes (TILs)","肿瘤浸润淋巴细胞"],[171,"overall survival (OS)","总生存期"],[172,"progression-free survival (PFS)","无进展生存期"],[173,"disease-free survival (DFS)","无病生存期"],[174,"recurrence-free survival (RFS)","无复发生存期"],[175,"five-year survival rate 5","年生存率"],[176,"surveillance","监测"],[177,"screening","筛查"],[178,"early detection","早期发现"],[179,"liquid biopsy","液体活检"],[180,"circulating tumor cells (CTCs)","循环肿瘤细胞"],[181,"cell-free DNA (cfDNA)","游离DNA"],[182,"DNA methylation DNA","甲基化"],[183,"mutation","突变"],[184,"genetic testing","基因检测"],[185,"next-generation sequencing (NGS)","二代测序"],[186,"transcriptomics","转录组学"],[187,"single-cell sequencing","单细胞测序"],[188,"spatial transcriptomics","空间转录组学"],[189,"proteomics","蛋白质组学"],[190,"metabolomics","代谢组学"],[191,"network toxicology","网络毒理学"],[192,"Mendelian randomization","孟德尔随机化"],[193,"machine learning","机器学习"],[194,"deep learning","深度学习"],[195,"artificial intelligence (AI)","人工智能"],[196,"predictive model","预测模型"],[197,"nomogram","列线图"],[198,"ROC curve","受试者工作特征曲线"],[199,"area under the curve (AUC)","曲线下面积"],[200,"cross-validation","交叉验证"],[201,"external validation","外部验证"],[202,"bioinformatics","生物信息学"],[203,"gene expression","基因表达"],[204,"differentially expressed genes","差异表达基因"],[205,"pathway enrichment","通路富集分析"],[206,"tumor microenvironment (TME)","肿瘤微环境"],[207,"inflammatory response","炎症反应"],[208,"oxidative stress","氧化应激"],[209,"apoptosis","细胞凋亡"],[210,"proliferation","增殖"],[211,"invasion","侵袭"],[212,"migration","迁移"],[213,"angiogenesis","血管生成"],[214,"epithelial-mesenchymal transition (EMT)","上皮间质转化"],[215,"cell line","细胞系"],[216,"animal model","动物模型"],[217,"western blot","蛋白印迹（WB）"],[218,"quantitative real-time PCR (qRT-PCR)","实时荧光定量PCR"],[219,"flow cytometry","流式细胞术"],[220,"ELISA","酶联免疫吸附试验"],[221,"benign","良性"],[222,"malignant","恶性"],[223,"tumor","肿瘤"],[224,"lesion","病灶"],[225,"nodule","结节"],[226,"cyst","囊肿"],[227,"polyp","息肉"],[228,"calcification","钙化"],[229,"necrosis","坏死"],[230,"fibrosis","纤维化"],[231,"edema","水肿"],[232,"hemorrhage","出血"],[233,"inflammation","炎症"],[234,"renal cyst","肾囊肿"],[235,"polycystic kidney disease","多囊肾"],[236,"horseshoe kidney","马蹄肾"],[237,"renal angiomyolipoma (AML)","肾血管平滑肌脂肪瘤"],[238,"Wilms tumor","肾母细胞瘤"],[239,"adrenal gland","肾上腺"],[240,"pheochromocytoma","嗜铬细胞瘤"],[241,"adrenal adenoma","肾上腺腺瘤"],[242,"primary aldosteronism","原发性醛固酮增多症"],[243,"Cushing syndrome","库欣综合征"],[244,"bladder diverticulum","膀胱憩室"],[245,"urethral stricture","尿道狭窄"],[246,"urethral injury","尿道损伤"],[247,"bladder rupture","膀胱破裂"],[248,"renal trauma","肾损伤"],[249,"penile cancer","阴茎癌"],[250,"scrotum","阴囊"],[251,"spermatic cord","精索"],[252,"seminal vesicle","精囊"],[253,"prepuce","包皮"],[254,"phimosis","包茎"],[255,"circumcision","包皮环切术"],[256,"balanitis","龟头炎"],[257,"hematospermia","血精"],[258,"retrograde ejaculation","逆行射精"],[259,"perineum","会阴"],[260,"inguinal region","腹股沟区"],[261,"voiding / micturition","排尿"],[262,"urine output","尿量"],[263,"polyuria","多尿"],[264,"oliguria","少尿"],[265,"anuria","无尿"],[266,"proteinuria","蛋白尿"],[267,"glycosuria","糖尿"],[268,"urine specific gravity","尿比重"],[269,"bladder capacity","膀胱容量"],[270,"urodynamics","尿动力学"],[271,"detrusor overactivity","逼尿肌过度活动"],[272,"clean intermittent catheterization (CIC)","清洁间歇导尿"],[273,"pelvic floor","盆底"],[274,"alpha-blocker α","受体阻滞剂"],[275,"5-alpha reductase inhibitor 5α","还原酶抑制剂"],[276,"anticholinergic agent","抗胆碱能药物"],[277,"phosphodiesterase-5 inhibitor (PDE5i)","磷酸二酯酶5抑制剂"],[278,"androgen deprivation therapy (ADT)","雄激素剥夺治疗"],[279,"castration-resistant prostate cancer (CRPC)","去势抵抗性前列腺癌"],[280,"active surveillance","主动监测"],[281,"watchful waiting","观察等待"],[282,"radical prostatectomy","根治性前列腺切除术"],[283,"laparoscopic surgery","腹腔镜手术"],[284,"robot-assisted surgery","机器人辅助手术"],[285,"minimally invasive surgery","微创手术"],[286,"surgical indication","手术指征"],[287,"contraindication","禁忌证"],[288,"informed consent","知情同意"],[289,"adverse event","不良事件"],[290,"randomized controlled trial (RCT)","随机对照试验"],[291,"prospective study","前瞻性研究"],[292,"retrospective study","回顾性研究"],[293,"cohort study","队列研究"],[294,"case-control study","病例对照研究"],[295,"meta-analysis","荟萃分析"],[296,"systematic review","系统综述"],[297,"confidence interval (CI)","置信区间"],[298,"hazard ratio (HR)","风险比"],[299,"odds ratio (OR)","比值比"],[300,"statistical significance","统计学意义"]];
+var MIN = 60000;
+var D = [5,30,12*60,24*60,2*24*60,4*24*60,7*24*60,15*24*60];
+var KEY = 'uro300_v1';
+var WORD_N = WORDS.length;
+var wmap = {}; WORDS.forEach(function(w){ wmap[w[0]]=w; });
+function starsOf(no){ return no<=60?5 : no<=140?4 : no<=220?3 : 2; }
+function starName(no){ return ({5:'五星核心',4:'四星高频',3:'三星中频',2:'二星保底'})[starsOf(no)]; }
+
+var S = null;
+function defState(){ return {v:1, cfg:{mode:'e2c',filter:'all',batch:20}, w:{}}; }
+function load(){
+  try{ var raw=localStorage.getItem(KEY); if(raw){ S=JSON.parse(raw); if(!S.cfg) S.cfg=defState().cfg; } else S=defState(); }
+  catch(e){ S=defState(); }
+}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+function sw(id){ if(!S.w[id]) S.w[id]={e:0,c:0,due:null}; return S.w[id]; }
+function inFilter(no){ var f=S.cfg.filter; return f==='all' || starsOf(no)===+f; }
+function dueIds(){
+  var now=Date.now(), a=[];
+  for(var no in S.w){ var w=S.w[no]; if(w.e && w.c<9 && w.due && w.due<=now) a.push(+no); }
+  a.sort(function(x,y){ return S.w[x].due - S.w[y].due; });
+  return a;
+}
+function learnedCnt(){ var n=0; for(var no in S.w) if(S.w[no].e) n++; return n; }
+function doneCnt(){ var n=0; for(var no in S.w) if(S.w[no].c>=9) n++; return n; }
+
+function $(id){ return document.getElementById(id); }
+var toastT=null;
+function toast(msg){ var t=$('toast'); t.textContent=msg; t.style.display='block'; clearTimeout(toastT); toastT=setTimeout(function(){t.style.display='none';},2200); }
+function fmtDue(ms){
+  var m=Math.max(1,Math.round(ms/MIN));
+  if(m<60) return m+' 分钟';
+  if(m<1440) return Math.round(m/60*10)/10+' 小时';
+  return Math.round(m/1440)+' 天';
+}
+function renderHud(){
+  $('hudDue').textContent=dueIds().length;
+  $('hudDone').textContent=doneCnt();
+}
+function updateHome(){
+  $('stLearned').textContent=learnedCnt();
+  $('stDone').textContent=doneCnt();
+  $('stNew').textContent=WORD_N-learnedCnt();
+  var rows={5:[],4:[],3:[],2:[]};
+  for(var no in S.w){ if(S.w[no].e) rows[starsOf(+no)].push(+no); }
+  var bars=$('bars'); bars.innerHTML='';
+  [[5,'五星核心',60],[4,'四星高频',80],[3,'三星中频',80],[2,'二星保底',80]].forEach(function(t){
+    var s=t[0],nm=t[1],tot=t[2];
+    var lr=rows[s].filter(function(no){ return S.w[no].c<9; }).length;
+    var d=document.createElement('div'); d.className='bar-row';
+    d.innerHTML='<span class="nm">'+nm+'</span><div class="bk"><i style="width:'+Math.min(100,lr/tot*100)+'%"></i></div><b>'+lr+'/'+tot+'</b>';
+    bars.appendChild(d);
+  });
+  var now=Date.now(), minDue=null;
+  for(var no2 in S.w){ var w=S.w[no2]; if(w.e && w.c<9 && w.due && w.due>now && (!minDue||w.due<minDue)) minDue=w.due; }
+  var dl=dueIds().length;
+  $('dueHint').textContent = minDue ? ('下次复习约在 '+fmtDue(minDue-now)+' 后'+(dl?('，已有 '+dl+' 个到期可先复习'):'')+'。')
+                          : (dl ? ('有 '+dl+' 个词已到期，点「复习到期词」。') : '暂无到期单词，可以开始学习新词。');
+  renderHud();
+}
+
+var sess=null;
+function buildQueue(){
+  if(sess.type==='rev'){
+    sess.ids = dueIds().filter(inFilter);
+  }else{
+    var fresh=[];
+    for(var no=1;no<=WORD_N;no++){ var w=S.w[no]; if(inFilter(no) && (!w || !w.e)) fresh.push(no); }
+    sess.ids = fresh.slice(0, S.cfg.batch);
+  }
+  sess.pos=0; sess.ok=sess.fz=sess.no=0; sess.total=sess.ids.length;
+}
+function doLearn(){
+  exitSession();
+  sess={type:'learn'};
+  buildQueue();
+  if(!sess.ids.length){ toast('当前范围新词已学完，可切换档位或去复习'); return; }
+  showSession();
+}
+function doRev(){
+  exitSession();
+  sess={type:'rev'};
+  buildQueue();
+  if(!sess.ids.length){ toast('暂无到期单词，先去学新词吧'); updateHome(); return; }
+  showSession();
+}
+function showSession(){
+  $('home').style.display='none'; $('done').style.display='none';
+  $('session').style.display='block';
+  renderCard();
+}
+function exitSession(){ sess=null; $('session').style.display='none'; $('done').style.display='none'; $('home').style.display='block'; updateHome(); }
+function renderCard(){
+  if(!sess) return;
+  if(sess.pos>=sess.ids.length){ finish(); return; }
+  var no=sess.ids[sess.pos], wd=wmap[no], mode=S.cfg.mode;
+  $('cardMeta').textContent='#'+no+' · '+starName(no)+(sess.type==='rev'?' · 复习':' · 学习')+'　'+(sess.pos+1)+'/'+sess.total;
+  var prompt=$('prompt');
+  if(mode==='e2c'){ prompt.textContent=wd[1]; prompt.className='prompt'; }
+  else { prompt.textContent=wd[2]; prompt.className='prompt cn'; }
+  $('answer').style.display='none';
+  $('progBar').style.width=(sess.pos/sess.total*100)+'%';
+}
+function reveal(){
+  if(!sess) return;
+  var no=sess.ids[sess.pos], wd=wmap[no], mode=S.cfg.mode;
+  var a=$('answer'); a.style.display='block';
+  var at=$('ansText');
+  if(mode==='e2c'){ at.textContent=wd[2]; at.className='ans'; }
+  else { at.textContent=wd[1]; at.className='ans en'; }
+  var box=$('actsBox'); box.innerHTML='';
+  var labels = (sess.type==='learn')
+      ? [{k:'no',t:'不熟',c:'no'},{k:'ok',t:'记住了',c:'ok'}]
+      : [{k:'no',t:'1 忘了',c:'no'},{k:'fz',t:'2 模糊',c:'fz'},{k:'ok',t:'3 记住了',c:'ok'}];
+  labels.forEach(function(L){
+    var b=document.createElement('button'); b.className=L.c; b.textContent=L.t;
+    b.onclick=function(){ answer(L.k); };
+    box.appendChild(b);
+  });
+}
+function speak(txt){
+  try{ var u=new SpeechSynthesisUtterance(txt); u.lang='en-US'; u.rate=0.85; speechSynthesis.cancel(); speechSynthesis.speak(u); }catch(e){}
+}
+function answer(k){
+  if(!sess) return;
+  var no=sess.ids[sess.pos], w=sw(no), now=Date.now();
+  w.e=1;
+  if(k==='ok'){ w.c+=1; if(w.c>=9){ w.c=9; w.due=null; } else w.due=now+D[w.c-1]*MIN; sess.ok++; }
+  else if(k==='fz'){ w.due=now+5*MIN; sess.fz++; }
+  else { if(sess.type==='rev'){ w.c=0; w.due=now+2*MIN; } else { w.e=1; w.c=0; w.due=now+5*MIN; } sess.no++; }
+  save(); sess.pos++;
+  renderHud();
+  if(sess.pos>=sess.ids.length) finish(); else renderCard();
+}
+function finish(){
+  var title=$('doneTitle'), body=$('doneBody');
+  var txt, sum=sess.total;
+  if(sess.type==='learn'){
+    title.textContent='✅ 本批 '+sum+' 个新词已学完';
+    txt='5 分钟后这批词进入第一次到期复习。建议稍后（或趁热）点「复习到期词」巩固一遍。';
+    $('doneBtn2').style.display='';
+  }else{
+    title.textContent='🎉 本批 '+sum+' 个词复习完成';
+    txt='记住了 '+sess.ok+' · 模糊 '+sess.fz+' · 忘了 '+sess.no+'。';
+    var dl=dueIds().length;
+    txt += dl ? ('还有 '+dl+' 个到期，可再复习一轮。') : '按遗忘曲线接下来进入 12 小时 / 1 天等更长间隔。';
+    $('doneBtn2').style.display='none';
+  }
+  var now=Date.now(), soon=[];
+  for(var no in S.w){ var w=S.w[no]; if(w.e && w.c>=1 && w.c<9 && w.due && w.due>now) soon.push(w.due-now); }
+  if(soon.length){
+    soon.sort(function(a,b){return a-b;});
+    var g={'30 分钟内':0,'1 小时内':0,'12 小时内':0,'1 天后':0};
+    soon.forEach(function(x){
+      if(x<=30*MIN) g['30 分钟内']++;
+      else if(x<=60*MIN) g['1 小时内']++;
+      else if(x<=12*60*MIN) g['12 小时内']++;
+      else g['1 天后']++;
+    });
+    var parts=[];
+    Object.keys(g).forEach(function(k){ if(g[k]) parts.push(k+' '+g[k]+' 个'); });
+    if(parts.length) txt+='　后续到期：'+parts.join('，')+'。';
+  }
+  body.textContent=txt;
+  $('home').style.display='none'; $('session').style.display='none';
+  $('done').style.display='block';
+  sess=null;
+  updateHome();
+}
+
+function setMode(m){ S.cfg.mode=m; document.querySelectorAll('#modeSeg button').forEach(function(b){ b.classList.toggle('on', b.dataset.mode===m); }); save(); }
+function setFilter(f){ S.cfg.filter=f; document.querySelectorAll('#filterChips button').forEach(function(b){ b.classList.toggle('on', b.dataset.f===f); }); save(); updateHome(); }
+function resetAll(){ if(!confirm('确定清空全部学习进度吗？（可先导出备份）')) return; localStorage.removeItem(KEY); load(); updateHome(); toast('进度已清空'); }
+function exportData(){
+  var d=new Blob([JSON.stringify(S,null,1)],{type:'application/json'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(d);
+  a.download='背单词进度_'+new Date().toISOString().slice(0,10)+'.json';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  toast('已导出进度文件');
+}
+function importData(inp){
+  var f=inp.files[0]; if(!f) return;
+  var rd=new FileReader();
+  rd.onload=function(){
+    try{ var o=JSON.parse(rd.result); if(!o.w || !o.cfg) throw 0; S=o; save(); updateHome(); toast('导入成功'); }
+    catch(e){ toast('文件格式不正确'); }
+  };
+  rd.readAsText(f); inp.value='';
+}
+
+document.addEventListener('keydown', function(ev){
+  var tg=ev.target;
+  if(tg && (tg.tagName==='INPUT'||tg.tagName==='SELECT'||tg.tagName==='TEXTAREA')) return;
+  if(!sess) return;
+  if(ev.key===' '||ev.code==='Space'){ ev.preventDefault(); reveal(); }
+  else if(ev.key==='1'){ if($('answer').style.display!=='none') answer('no'); }
+  else if(ev.key==='2'){ if($('answer').style.display!=='none') answer('fz'); }
+  else if(ev.key==='3'){ if($('answer').style.display!=='none') answer('ok'); }
+});
+
+document.querySelectorAll('#modeSeg button').forEach(function(b){ b.onclick=function(){ setMode(b.dataset.mode); }; });
+document.querySelectorAll('#filterChips button').forEach(function(b){ b.onclick=function(){ setFilter(b.dataset.f); }; });
+$('batchSel').onchange=function(e){ S.cfg.batch=+e.target.value; save(); };
+$('learnTop').onclick=doLearn;
+$('revTop').onclick=doRev;
+$('exitBtn').onclick=exitSession;
+$('doneBtn1').onclick=function(){ doLearn(); };
+$('doneBtn2').onclick=function(){ doRev(); };
+$('doneBtn3').onclick=exitSession;
+$('btnExport').onclick=exportData;
+$('btnImport').onclick=function(){ $('imp').click(); };
+$('imp').onchange=function(){ importData(this); };
+$('btnReset').onclick=resetAll;
+$('speakBtn').onclick=function(){ if(sess){ var wd=wmap[sess.ids[sess.pos]]; speak(wd[1]); } };
+$('ansText').onclick=function(){ if(sess){ var wd=wmap[sess.ids[sess.pos]]; speak(wd[1]); } };
+$('prompt').onclick=reveal;
+$('prompt').style.cursor='pointer';
+
+load();
+document.querySelectorAll('#modeSeg button').forEach(function(b){ b.classList.toggle('on', b.dataset.mode===S.cfg.mode); });
+document.querySelectorAll('#filterChips button').forEach(function(b){ b.classList.toggle('on', b.dataset.f===S.cfg.filter); });
+$('batchSel').value=String(S.cfg.batch);
+updateHome();
+setInterval(function(){ if(!sess) renderHud(); }, 20000);
+</script>
+</body>
+</html>
