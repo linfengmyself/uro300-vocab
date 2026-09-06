@@ -70,8 +70,12 @@
 </head>
 <body>
 <div class="wrap">
+  <div class="seg" id="libSeg" style="margin:2px 4px 10px">
+    <button data-lib="uro" class="on">🔬 泌尿外科词库</button>
+    <button data-lib="onco">🎗 肿瘤学词库</button>
+  </div>
   <header>
-    <h1>泌尿外科高频考词 300<small>艾宾浩斯遗忘曲线 · 面试英译中速记</small></h1>
+    <h1 id="libTitle">泌尿外科高频考词 300<small>艾宾浩斯遗忘曲线 · 面试英译中速记</small></h1>
     <div class="hud"><div class="c">到期 <b id="hudDue">0</b></div><div class="c">掌握 <b id="hudDone">0</b></div></div>
   </header>
 
@@ -161,12 +165,339 @@
 </div>
 
 <script>
-var WORDS = [[1,"hematuria","血尿"],[2,"gross hematuria","肉眼血尿"],[3,"microscopic hematuria","镜下血尿"],[4,"painless hematuria","无痛性血尿"],[5,"intermittent hematuria","间歇性血尿"],[6,"total hematuria","全程血尿"],[7,"initial hematuria","起始段血尿"],[8,"terminal hematuria","终末段血尿"],[9,"bladder cancer","膀胱癌"],[10,"bladder tumor","膀胱肿瘤"],[11,"urothelial carcinoma","尿路上皮癌"],[12,"transitional cell carcinoma","移行细胞癌"],[13,"urinary stone / urolithiasis","泌尿系结石"],[14,"renal calculus","肾结石"],[15,"ureteral calculus","输尿管结石"],[16,"bladder calculus","膀胱结石"],[17,"upper urinary tract","上尿路"],[18,"lower urinary tract","下尿路"],[19,"urinary tract obstruction","尿路梗阻"],[20,"hydronephrosis","肾积水"],[21,"benign prostatic hyperplasia (BPH)","良性前列腺增生"],[22,"urinary retention","尿潴留"],[23,"acute urinary retention","急性尿潴留"],[24,"chronic urinary retention","慢性尿潴留"],[25,"renal cell carcinoma (RCC)","肾细胞癌"],[26,"flank pain","腰痛"],[27,"abdominal mass","腹部肿块"],[28,"classic triad(hematuria + flank pain + abdominal mass)","肾癌三联征"],[29,"TURBT(transurethral resection of bladder tumor)","经尿道膀胱肿瘤切除术"],[30,"TURP(transurethral resection of the prostate)","经尿道前列腺电切术"],[31,"ESWL(extracorporeal shock wave lithotripsy)","体外冲击波碎石术"],[32,"PCNL(percutaneous nephrolithotomy)","经皮肾镜取石术"],[33,"ureteroscopy","输尿管镜检查/输尿管镜术"],[34,"flexible ureteroscopy","输尿管软镜"],[35,"cystoscopy","膀胱镜检查"],[36,"urine cytology","尿脱落细胞学检查"],[37,"creatinine","肌酐"],[38,"estimated glomerular filtration rate (eGFR)","估算肾小球滤过率"],[39,"post-void residual urine (PVR)","残余尿"],[40,"nocturia","夜尿增多"],[41,"urinary frequency","尿频"],[42,"urinary urgency","尿急"],[43,"dysuria","排尿困难"],[44,"weak urinary stream","尿线变细"],[45,"dribbling","尿后滴沥"],[46,"BCG(Bacillus Calmette-Guérin)","卡介苗（膀胱灌注）"],[47,"non-muscle-invasive bladder cancer (NMIBC)","非肌层浸润性膀胱癌"],[48,"muscle-invasive bladder cancer (MIBC)","肌层浸润性膀胱癌"],[49,"carcinoma in situ (CIS)","原位癌"],[50,"prostate-specific antigen (PSA)","前列腺特异性抗原"],[51,"digital rectal examination (DRE)","直肠指检"],[52,"prostate cancer","前列腺癌"],[53,"prostate biopsy","前列腺穿刺活检"],[54,"renal function","肾功能"],[55,"urethra","尿道"],[56,"ureter","输尿管"],[57,"renal pelvis","肾盂"],[58,"urinary bladder","膀胱"],[59,"prostate","前列腺"],[60,"testis","睾丸"],[61,"epididymis","附睾"],[62,"urinary tract infection (UTI)","泌尿系感染"],[63,"cystitis","膀胱炎"],[64,"pyelonephritis","肾盂肾炎"],[65,"prostatitis","前列腺炎"],[66,"chronic prostatitis / chronic pelvic pain syndrome (CP/CPPS)","慢性前列腺炎/慢性盆腔疼痛综合征"],[67,"pyuria","脓尿"],[68,"bacteriuria","菌尿"],[69,"urine culture","尿培养"],[70,"urosepsis","尿源性脓毒症"],[71,"renal colic","肾绞痛"],[72,"uremia","尿毒症"],[73,"urinalysis","尿常规"],[74,"urine sediment","尿沉渣（镜检）"],[75,"ultrasonography","超声检查"],[76,"computed tomography (CT)","计算机断层扫描"],[77,"CT urography (CTU)","泌尿系CT造影"],[78,"magnetic resonance imaging (MRI)","磁共振成像"],[79,"intravenous urography (IVU)","静脉尿路造影"],[80,"catheterization","导尿术"],[81,"indwelling catheter","留置导尿管"],[82,"double-J stent(ureteral stent)","双J管（输尿管支架管）"],[83,"nephrostomy","肾造瘘术"],[84,"suprapubic cystostomy","耻骨上膀胱造瘘术"],[85,"nephrectomy","肾切除术"],[86,"radical nephrectomy","根治性肾切除术"],[87,"partial nephrectomy","肾部分切除术"],[88,"radical cystectomy","根治性膀胱切除术"],[89,"urinary diversion","尿流改道术"],[90,"ileal conduit","回肠膀胱术"],[91,"neobladder","原位新膀胱"],[92,"lower urinary tract symptoms (LUTS)","下尿路症状"],[93,"International Prostate Symptom Score (IPSS)","国际前列腺症状评分"],[94,"uroflowmetry","尿流率测定"],[95,"maximum flow rate (Qmax)","最大尿流率"],[96,"bladder outlet obstruction (BOO)","膀胱出口梗阻"],[97,"urinary incontinence","尿失禁"],[98,"stress urinary incontinence (SUI)","压力性尿失禁"],[99,"overactive bladder (OAB)","膀胱过度活动症"],[100,"neurogenic bladder","神经源性膀胱"],[101,"urinary tract tuberculosis","泌尿系结核"],[102,"testicular torsion","睾丸扭转"],[103,"varicocele","精索静脉曲张"],[104,"hydrocele","鞘膜积液"],[105,"cryptorchidism","隐睾"],[106,"male infertility","男性不育症"],[107,"semen analysis","精液分析"],[108,"azoospermia","无精子症"],[109,"oligospermia","少精子症"],[110,"erectile dysfunction (ED)","勃起功能障碍"],[111,"Gleason score Gleason","评分"],[112,"free/total PSA ratio","游离/总PSA比值"],[113,"stone composition","结石成分"],[114,"calcium oxalate stone","草酸钙结石"],[115,"uric acid stone","尿酸结石"],[116,"struvite stone(infection stone)","感染性结石（磷酸铵镁结石）"],[117,"cystine stone","胱氨酸结石"],[118,"hypercalciuria","高钙尿症"],[119,"lithotripsy","碎石术"],[120,"stone-free rate (SFR)","结石清除率"],[121,"hydroureter","输尿管积水"],[122,"ureteral stricture","输尿管狭窄"],[123,"acute kidney injury (AKI)","急性肾损伤"],[124,"chronic kidney disease (CKD)","慢性肾脏病"],[125,"hemodialysis","血液透析"],[126,"serum electrolyte","血清电解质"],[127,"metabolic acidosis","代谢性酸中毒"],[128,"ureteropelvic junction obstruction (UPJO)","肾盂输尿管连接部梗阻"],[129,"vesicoureteral reflux (VUR)","膀胱输尿管反流"],[130,"recurrence","复发"],[131,"metastasis","转移"],[132,"lymph node metastasis","淋巴结转移"],[133,"distant metastasis","远处转移"],[134,"diagnosis","诊断"],[135,"differential diagnosis","鉴别诊断"],[136,"staging","分期"],[137,"grading","分级"],[138,"prognosis","预后"],[139,"survival","生存"],[140,"follow-up","随访"],[141,"squamous cell carcinoma","鳞状细胞癌"],[142,"adenocarcinoma","腺癌"],[143,"tumor marker","肿瘤标志物"],[144,"biomarker","生物标志物"],[145,"molecular marker","分子标志物"],[146,"pathology","病理学"],[147,"biopsy","活检"],[148,"specimen","标本"],[149,"immunohistochemistry (IHC)","免疫组化"],[150,"hematoxylin-eosin (HE) staining","苏木精-伊红染色"],[151,"muscularis propria","固有肌层"],[152,"lamina propria","固有层"],[153,"detrusor muscle","逼尿肌"],[154,"intravesical instillation","膀胱内灌注"],[155,"neoadjuvant therapy","新辅助治疗"],[156,"adjuvant therapy","辅助治疗"],[157,"chemotherapy","化疗"],[158,"radiotherapy","放疗"],[159,"immunotherapy","免疫治疗"],[160,"immune checkpoint inhibitor","免疫检查点抑制剂"],[161,"PD-1 / PD-L1","程序性死亡受体1/配体1"],[162,"targeted therapy","靶向治疗"],[163,"tyrosine kinase inhibitor (TKI)","酪氨酸激酶抑制剂"],[164,"antibody-drug conjugate (ADC)","抗体偶联药物"],[165,"HER2 expression HER2","表达"],[166,"tumor immune microenvironment","肿瘤免疫微环境"],[167,"immune infiltration","免疫浸润"],[168,"macrophage polarization","巨噬细胞极化"],[169,"M1 / M2 macrophages M1/M2","型巨噬细胞"],[170,"tumor-infiltrating lymphocytes (TILs)","肿瘤浸润淋巴细胞"],[171,"overall survival (OS)","总生存期"],[172,"progression-free survival (PFS)","无进展生存期"],[173,"disease-free survival (DFS)","无病生存期"],[174,"recurrence-free survival (RFS)","无复发生存期"],[175,"five-year survival rate 5","年生存率"],[176,"surveillance","监测"],[177,"screening","筛查"],[178,"early detection","早期发现"],[179,"liquid biopsy","液体活检"],[180,"circulating tumor cells (CTCs)","循环肿瘤细胞"],[181,"cell-free DNA (cfDNA)","游离DNA"],[182,"DNA methylation DNA","甲基化"],[183,"mutation","突变"],[184,"genetic testing","基因检测"],[185,"next-generation sequencing (NGS)","二代测序"],[186,"transcriptomics","转录组学"],[187,"single-cell sequencing","单细胞测序"],[188,"spatial transcriptomics","空间转录组学"],[189,"proteomics","蛋白质组学"],[190,"metabolomics","代谢组学"],[191,"network toxicology","网络毒理学"],[192,"Mendelian randomization","孟德尔随机化"],[193,"machine learning","机器学习"],[194,"deep learning","深度学习"],[195,"artificial intelligence (AI)","人工智能"],[196,"predictive model","预测模型"],[197,"nomogram","列线图"],[198,"ROC curve","受试者工作特征曲线"],[199,"area under the curve (AUC)","曲线下面积"],[200,"cross-validation","交叉验证"],[201,"external validation","外部验证"],[202,"bioinformatics","生物信息学"],[203,"gene expression","基因表达"],[204,"differentially expressed genes","差异表达基因"],[205,"pathway enrichment","通路富集分析"],[206,"tumor microenvironment (TME)","肿瘤微环境"],[207,"inflammatory response","炎症反应"],[208,"oxidative stress","氧化应激"],[209,"apoptosis","细胞凋亡"],[210,"proliferation","增殖"],[211,"invasion","侵袭"],[212,"migration","迁移"],[213,"angiogenesis","血管生成"],[214,"epithelial-mesenchymal transition (EMT)","上皮间质转化"],[215,"cell line","细胞系"],[216,"animal model","动物模型"],[217,"western blot","蛋白印迹（WB）"],[218,"quantitative real-time PCR (qRT-PCR)","实时荧光定量PCR"],[219,"flow cytometry","流式细胞术"],[220,"ELISA","酶联免疫吸附试验"],[221,"benign","良性"],[222,"malignant","恶性"],[223,"tumor","肿瘤"],[224,"lesion","病灶"],[225,"nodule","结节"],[226,"cyst","囊肿"],[227,"polyp","息肉"],[228,"calcification","钙化"],[229,"necrosis","坏死"],[230,"fibrosis","纤维化"],[231,"edema","水肿"],[232,"hemorrhage","出血"],[233,"inflammation","炎症"],[234,"renal cyst","肾囊肿"],[235,"polycystic kidney disease","多囊肾"],[236,"horseshoe kidney","马蹄肾"],[237,"renal angiomyolipoma (AML)","肾血管平滑肌脂肪瘤"],[238,"Wilms tumor","肾母细胞瘤"],[239,"adrenal gland","肾上腺"],[240,"pheochromocytoma","嗜铬细胞瘤"],[241,"adrenal adenoma","肾上腺腺瘤"],[242,"primary aldosteronism","原发性醛固酮增多症"],[243,"Cushing syndrome","库欣综合征"],[244,"bladder diverticulum","膀胱憩室"],[245,"urethral stricture","尿道狭窄"],[246,"urethral injury","尿道损伤"],[247,"bladder rupture","膀胱破裂"],[248,"renal trauma","肾损伤"],[249,"penile cancer","阴茎癌"],[250,"scrotum","阴囊"],[251,"spermatic cord","精索"],[252,"seminal vesicle","精囊"],[253,"prepuce","包皮"],[254,"phimosis","包茎"],[255,"circumcision","包皮环切术"],[256,"balanitis","龟头炎"],[257,"hematospermia","血精"],[258,"retrograde ejaculation","逆行射精"],[259,"perineum","会阴"],[260,"inguinal region","腹股沟区"],[261,"voiding / micturition","排尿"],[262,"urine output","尿量"],[263,"polyuria","多尿"],[264,"oliguria","少尿"],[265,"anuria","无尿"],[266,"proteinuria","蛋白尿"],[267,"glycosuria","糖尿"],[268,"urine specific gravity","尿比重"],[269,"bladder capacity","膀胱容量"],[270,"urodynamics","尿动力学"],[271,"detrusor overactivity","逼尿肌过度活动"],[272,"clean intermittent catheterization (CIC)","清洁间歇导尿"],[273,"pelvic floor","盆底"],[274,"alpha-blocker α","受体阻滞剂"],[275,"5-alpha reductase inhibitor 5α","还原酶抑制剂"],[276,"anticholinergic agent","抗胆碱能药物"],[277,"phosphodiesterase-5 inhibitor (PDE5i)","磷酸二酯酶5抑制剂"],[278,"androgen deprivation therapy (ADT)","雄激素剥夺治疗"],[279,"castration-resistant prostate cancer (CRPC)","去势抵抗性前列腺癌"],[280,"active surveillance","主动监测"],[281,"watchful waiting","观察等待"],[282,"radical prostatectomy","根治性前列腺切除术"],[283,"laparoscopic surgery","腹腔镜手术"],[284,"robot-assisted surgery","机器人辅助手术"],[285,"minimally invasive surgery","微创手术"],[286,"surgical indication","手术指征"],[287,"contraindication","禁忌证"],[288,"informed consent","知情同意"],[289,"adverse event","不良事件"],[290,"randomized controlled trial (RCT)","随机对照试验"],[291,"prospective study","前瞻性研究"],[292,"retrospective study","回顾性研究"],[293,"cohort study","队列研究"],[294,"case-control study","病例对照研究"],[295,"meta-analysis","荟萃分析"],[296,"systematic review","系统综述"],[297,"confidence interval (CI)","置信区间"],[298,"hazard ratio (HR)","风险比"],[299,"odds ratio (OR)","比值比"],[300,"statistical significance","统计学意义"]];
+var WORDS_URO = [[1,"hematuria","血尿"],[2,"gross hematuria","肉眼血尿"],[3,"microscopic hematuria","镜下血尿"],[4,"painless hematuria","无痛性血尿"],[5,"intermittent hematuria","间歇性血尿"],[6,"total hematuria","全程血尿"],[7,"initial hematuria","起始段血尿"],[8,"terminal hematuria","终末段血尿"],[9,"bladder cancer","膀胱癌"],[10,"bladder tumor","膀胱肿瘤"],[11,"urothelial carcinoma","尿路上皮癌"],[12,"transitional cell carcinoma","移行细胞癌"],[13,"urinary stone / urolithiasis","泌尿系结石"],[14,"renal calculus","肾结石"],[15,"ureteral calculus","输尿管结石"],[16,"bladder calculus","膀胱结石"],[17,"upper urinary tract","上尿路"],[18,"lower urinary tract","下尿路"],[19,"urinary tract obstruction","尿路梗阻"],[20,"hydronephrosis","肾积水"],[21,"benign prostatic hyperplasia (BPH)","良性前列腺增生"],[22,"urinary retention","尿潴留"],[23,"acute urinary retention","急性尿潴留"],[24,"chronic urinary retention","慢性尿潴留"],[25,"renal cell carcinoma (RCC)","肾细胞癌"],[26,"flank pain","腰痛"],[27,"abdominal mass","腹部肿块"],[28,"classic triad(hematuria + flank pain + abdominal mass)","肾癌三联征"],[29,"TURBT(transurethral resection of bladder tumor)","经尿道膀胱肿瘤切除术"],[30,"TURP(transurethral resection of the prostate)","经尿道前列腺电切术"],[31,"ESWL(extracorporeal shock wave lithotripsy)","体外冲击波碎石术"],[32,"PCNL(percutaneous nephrolithotomy)","经皮肾镜取石术"],[33,"ureteroscopy","输尿管镜检查/输尿管镜术"],[34,"flexible ureteroscopy","输尿管软镜"],[35,"cystoscopy","膀胱镜检查"],[36,"urine cytology","尿脱落细胞学检查"],[37,"creatinine","肌酐"],[38,"estimated glomerular filtration rate (eGFR)","估算肾小球滤过率"],[39,"post-void residual urine (PVR)","残余尿"],[40,"nocturia","夜尿增多"],[41,"urinary frequency","尿频"],[42,"urinary urgency","尿急"],[43,"dysuria","排尿困难"],[44,"weak urinary stream","尿线变细"],[45,"dribbling","尿后滴沥"],[46,"BCG(Bacillus Calmette-Guérin)","卡介苗（膀胱灌注）"],[47,"non-muscle-invasive bladder cancer (NMIBC)","非肌层浸润性膀胱癌"],[48,"muscle-invasive bladder cancer (MIBC)","肌层浸润性膀胱癌"],[49,"carcinoma in situ (CIS)","原位癌"],[50,"prostate-specific antigen (PSA)","前列腺特异性抗原"],[51,"digital rectal examination (DRE)","直肠指检"],[52,"prostate cancer","前列腺癌"],[53,"prostate biopsy","前列腺穿刺活检"],[54,"renal function","肾功能"],[55,"urethra","尿道"],[56,"ureter","输尿管"],[57,"renal pelvis","肾盂"],[58,"urinary bladder","膀胱"],[59,"prostate","前列腺"],[60,"testis","睾丸"],[61,"epididymis","附睾"],[62,"urinary tract infection (UTI)","泌尿系感染"],[63,"cystitis","膀胱炎"],[64,"pyelonephritis","肾盂肾炎"],[65,"prostatitis","前列腺炎"],[66,"chronic prostatitis / chronic pelvic pain syndrome (CP/CPPS)","慢性前列腺炎/慢性盆腔疼痛综合征"],[67,"pyuria","脓尿"],[68,"bacteriuria","菌尿"],[69,"urine culture","尿培养"],[70,"urosepsis","尿源性脓毒症"],[71,"renal colic","肾绞痛"],[72,"uremia","尿毒症"],[73,"urinalysis","尿常规"],[74,"urine sediment","尿沉渣（镜检）"],[75,"ultrasonography","超声检查"],[76,"computed tomography (CT)","计算机断层扫描"],[77,"CT urography (CTU)","泌尿系CT造影"],[78,"magnetic resonance imaging (MRI)","磁共振成像"],[79,"intravenous urography (IVU)","静脉尿路造影"],[80,"catheterization","导尿术"],[81,"indwelling catheter","留置导尿管"],[82,"double-J stent(ureteral stent)","双J管（输尿管支架管）"],[83,"nephrostomy","肾造瘘术"],[84,"suprapubic cystostomy","耻骨上膀胱造瘘术"],[85,"nephrectomy","肾切除术"],[86,"radical nephrectomy","根治性肾切除术"],[87,"partial nephrectomy","肾部分切除术"],[88,"radical cystectomy","根治性膀胱切除术"],[89,"urinary diversion","尿流改道术"],[90,"ileal conduit","回肠膀胱术"],[91,"neobladder","原位新膀胱"],[92,"lower urinary tract symptoms (LUTS)","下尿路症状"],[93,"International Prostate Symptom Score (IPSS)","国际前列腺症状评分"],[94,"uroflowmetry","尿流率测定"],[95,"maximum flow rate (Qmax)","最大尿流率"],[96,"bladder outlet obstruction (BOO)","膀胱出口梗阻"],[97,"urinary incontinence","尿失禁"],[98,"stress urinary incontinence (SUI)","压力性尿失禁"],[99,"overactive bladder (OAB)","膀胱过度活动症"],[100,"neurogenic bladder","神经源性膀胱"],[101,"urinary tract tuberculosis","泌尿系结核"],[102,"testicular torsion","睾丸扭转"],[103,"varicocele","精索静脉曲张"],[104,"hydrocele","鞘膜积液"],[105,"cryptorchidism","隐睾"],[106,"male infertility","男性不育症"],[107,"semen analysis","精液分析"],[108,"azoospermia","无精子症"],[109,"oligospermia","少精子症"],[110,"erectile dysfunction (ED)","勃起功能障碍"],[111,"Gleason score Gleason","评分"],[112,"free/total PSA ratio","游离/总PSA比值"],[113,"stone composition","结石成分"],[114,"calcium oxalate stone","草酸钙结石"],[115,"uric acid stone","尿酸结石"],[116,"struvite stone(infection stone)","感染性结石（磷酸铵镁结石）"],[117,"cystine stone","胱氨酸结石"],[118,"hypercalciuria","高钙尿症"],[119,"lithotripsy","碎石术"],[120,"stone-free rate (SFR)","结石清除率"],[121,"hydroureter","输尿管积水"],[122,"ureteral stricture","输尿管狭窄"],[123,"acute kidney injury (AKI)","急性肾损伤"],[124,"chronic kidney disease (CKD)","慢性肾脏病"],[125,"hemodialysis","血液透析"],[126,"serum electrolyte","血清电解质"],[127,"metabolic acidosis","代谢性酸中毒"],[128,"ureteropelvic junction obstruction (UPJO)","肾盂输尿管连接部梗阻"],[129,"vesicoureteral reflux (VUR)","膀胱输尿管反流"],[130,"recurrence","复发"],[131,"metastasis","转移"],[132,"lymph node metastasis","淋巴结转移"],[133,"distant metastasis","远处转移"],[134,"diagnosis","诊断"],[135,"differential diagnosis","鉴别诊断"],[136,"staging","分期"],[137,"grading","分级"],[138,"prognosis","预后"],[139,"survival","生存"],[140,"follow-up","随访"],[141,"squamous cell carcinoma","鳞状细胞癌"],[142,"adenocarcinoma","腺癌"],[143,"tumor marker","肿瘤标志物"],[144,"biomarker","生物标志物"],[145,"molecular marker","分子标志物"],[146,"pathology","病理学"],[147,"biopsy","活检"],[148,"specimen","标本"],[149,"immunohistochemistry (IHC)","免疫组化"],[150,"hematoxylin-eosin (HE) staining","苏木精-伊红染色"],[151,"muscularis propria","固有肌层"],[152,"lamina propria","固有层"],[153,"detrusor muscle","逼尿肌"],[154,"intravesical instillation","膀胱内灌注"],[155,"neoadjuvant therapy","新辅助治疗"],[156,"adjuvant therapy","辅助治疗"],[157,"chemotherapy","化疗"],[158,"radiotherapy","放疗"],[159,"immunotherapy","免疫治疗"],[160,"immune checkpoint inhibitor","免疫检查点抑制剂"],[161,"PD-1 / PD-L1","程序性死亡受体1/配体1"],[162,"targeted therapy","靶向治疗"],[163,"tyrosine kinase inhibitor (TKI)","酪氨酸激酶抑制剂"],[164,"antibody-drug conjugate (ADC)","抗体偶联药物"],[165,"HER2 expression HER2","表达"],[166,"tumor immune microenvironment","肿瘤免疫微环境"],[167,"immune infiltration","免疫浸润"],[168,"macrophage polarization","巨噬细胞极化"],[169,"M1 / M2 macrophages M1/M2","型巨噬细胞"],[170,"tumor-infiltrating lymphocytes (TILs)","肿瘤浸润淋巴细胞"],[171,"overall survival (OS)","总生存期"],[172,"progression-free survival (PFS)","无进展生存期"],[173,"disease-free survival (DFS)","无病生存期"],[174,"recurrence-free survival (RFS)","无复发生存期"],[175,"five-year survival rate 5","年生存率"],[176,"surveillance","监测"],[177,"screening","筛查"],[178,"early detection","早期发现"],[179,"liquid biopsy","液体活检"],[180,"circulating tumor cells (CTCs)","循环肿瘤细胞"],[181,"cell-free DNA (cfDNA)","游离DNA"],[182,"DNA methylation DNA","甲基化"],[183,"mutation","突变"],[184,"genetic testing","基因检测"],[185,"next-generation sequencing (NGS)","二代测序"],[186,"transcriptomics","转录组学"],[187,"single-cell sequencing","单细胞测序"],[188,"spatial transcriptomics","空间转录组学"],[189,"proteomics","蛋白质组学"],[190,"metabolomics","代谢组学"],[191,"network toxicology","网络毒理学"],[192,"Mendelian randomization","孟德尔随机化"],[193,"machine learning","机器学习"],[194,"deep learning","深度学习"],[195,"artificial intelligence (AI)","人工智能"],[196,"predictive model","预测模型"],[197,"nomogram","列线图"],[198,"ROC curve","受试者工作特征曲线"],[199,"area under the curve (AUC)","曲线下面积"],[200,"cross-validation","交叉验证"],[201,"external validation","外部验证"],[202,"bioinformatics","生物信息学"],[203,"gene expression","基因表达"],[204,"differentially expressed genes","差异表达基因"],[205,"pathway enrichment","通路富集分析"],[206,"tumor microenvironment (TME)","肿瘤微环境"],[207,"inflammatory response","炎症反应"],[208,"oxidative stress","氧化应激"],[209,"apoptosis","细胞凋亡"],[210,"proliferation","增殖"],[211,"invasion","侵袭"],[212,"migration","迁移"],[213,"angiogenesis","血管生成"],[214,"epithelial-mesenchymal transition (EMT)","上皮间质转化"],[215,"cell line","细胞系"],[216,"animal model","动物模型"],[217,"western blot","蛋白印迹（WB）"],[218,"quantitative real-time PCR (qRT-PCR)","实时荧光定量PCR"],[219,"flow cytometry","流式细胞术"],[220,"ELISA","酶联免疫吸附试验"],[221,"benign","良性"],[222,"malignant","恶性"],[223,"tumor","肿瘤"],[224,"lesion","病灶"],[225,"nodule","结节"],[226,"cyst","囊肿"],[227,"polyp","息肉"],[228,"calcification","钙化"],[229,"necrosis","坏死"],[230,"fibrosis","纤维化"],[231,"edema","水肿"],[232,"hemorrhage","出血"],[233,"inflammation","炎症"],[234,"renal cyst","肾囊肿"],[235,"polycystic kidney disease","多囊肾"],[236,"horseshoe kidney","马蹄肾"],[237,"renal angiomyolipoma (AML)","肾血管平滑肌脂肪瘤"],[238,"Wilms tumor","肾母细胞瘤"],[239,"adrenal gland","肾上腺"],[240,"pheochromocytoma","嗜铬细胞瘤"],[241,"adrenal adenoma","肾上腺腺瘤"],[242,"primary aldosteronism","原发性醛固酮增多症"],[243,"Cushing syndrome","库欣综合征"],[244,"bladder diverticulum","膀胱憩室"],[245,"urethral stricture","尿道狭窄"],[246,"urethral injury","尿道损伤"],[247,"bladder rupture","膀胱破裂"],[248,"renal trauma","肾损伤"],[249,"penile cancer","阴茎癌"],[250,"scrotum","阴囊"],[251,"spermatic cord","精索"],[252,"seminal vesicle","精囊"],[253,"prepuce","包皮"],[254,"phimosis","包茎"],[255,"circumcision","包皮环切术"],[256,"balanitis","龟头炎"],[257,"hematospermia","血精"],[258,"retrograde ejaculation","逆行射精"],[259,"perineum","会阴"],[260,"inguinal region","腹股沟区"],[261,"voiding / micturition","排尿"],[262,"urine output","尿量"],[263,"polyuria","多尿"],[264,"oliguria","少尿"],[265,"anuria","无尿"],[266,"proteinuria","蛋白尿"],[267,"glycosuria","糖尿"],[268,"urine specific gravity","尿比重"],[269,"bladder capacity","膀胱容量"],[270,"urodynamics","尿动力学"],[271,"detrusor overactivity","逼尿肌过度活动"],[272,"clean intermittent catheterization (CIC)","清洁间歇导尿"],[273,"pelvic floor","盆底"],[274,"alpha-blocker α","受体阻滞剂"],[275,"5-alpha reductase inhibitor 5α","还原酶抑制剂"],[276,"anticholinergic agent","抗胆碱能药物"],[277,"phosphodiesterase-5 inhibitor (PDE5i)","磷酸二酯酶5抑制剂"],[278,"androgen deprivation therapy (ADT)","雄激素剥夺治疗"],[279,"castration-resistant prostate cancer (CRPC)","去势抵抗性前列腺癌"],[280,"active surveillance","主动监测"],[281,"watchful waiting","观察等待"],[282,"radical prostatectomy","根治性前列腺切除术"],[283,"laparoscopic surgery","腹腔镜手术"],[284,"robot-assisted surgery","机器人辅助手术"],[285,"minimally invasive surgery","微创手术"],[286,"surgical indication","手术指征"],[287,"contraindication","禁忌证"],[288,"informed consent","知情同意"],[289,"adverse event","不良事件"],[290,"randomized controlled trial (RCT)","随机对照试验"],[291,"prospective study","前瞻性研究"],[292,"retrospective study","回顾性研究"],[293,"cohort study","队列研究"],[294,"case-control study","病例对照研究"],[295,"meta-analysis","荟萃分析"],[296,"systematic review","系统综述"],[297,"confidence interval (CI)","置信区间"],[298,"hazard ratio (HR)","风险比"],[299,"odds ratio (OR)","比值比"],[300,"statistical significance","统计学意义"]];
+var WORDS_ONCO = [
+  [1,"tumor","肿瘤(肿块)"],
+  [2,"cancer","癌症"],
+  [3,"malignant","恶性的"],
+  [4,"benign","良性的"],
+  [5,"carcinoma","癌(上皮源性恶性肿瘤)"],
+  [6,"sarcoma","肉瘤"],
+  [7,"adenocarcinoma","腺癌"],
+  [8,"squamous cell carcinoma","鳞状细胞癌"],
+  [9,"neoplasm","肿瘤(新生物)"],
+  [10,"oncology","肿瘤学"],
+  [11,"oncologist","肿瘤科医生"],
+  [12,"tumorigenesis / carcinogenesis","肿瘤发生 / 癌变过程"],
+  [13,"carcinogen","致癌物"],
+  [14,"oncogenic","致癌的"],
+  [15,"metastasis","转移"],
+  [16,"invasion","侵袭"],
+  [17,"recurrence","复发"],
+  [18,"diagnosis","诊断"],
+  [19,"differential diagnosis","鉴别诊断"],
+  [20,"staging","分期"],
+  [21,"TNM staging system","TNM分期系统"],
+  [22,"grading","分级"],
+  [23,"differentiation","分化"],
+  [24,"prognosis","预后"],
+  [25,"tumor marker","肿瘤标志物"],
+  [26,"biopsy","活检"],
+  [27,"lymph node","淋巴结"],
+  [28,"lymph node metastasis","淋巴结转移"],
+  [29,"distant metastasis","远处转移"],
+  [30,"primary tumor","原发肿瘤"],
+  [31,"secondary tumor","继发性肿瘤(转移瘤)"],
+  [32,"lesion","病灶"],
+  [33,"mass","肿块(占位)"],
+  [34,"nodule","结节"],
+  [35,"carcinoma in situ (CIS)","原位癌"],
+  [36,"screening","筛查"],
+  [37,"early detection","早期发现"],
+  [38,"surgical resection","手术切除"],
+  [39,"radical resection","根治性切除"],
+  [40,"R0 resection","R0切除(切缘阴性)"],
+  [41,"chemotherapy","化疗"],
+  [42,"radiotherapy","放疗"],
+  [43,"immunotherapy","免疫治疗"],
+  [44,"targeted therapy","靶向治疗"],
+  [45,"endocrine therapy","内分泌治疗"],
+  [46,"adjuvant therapy","辅助治疗"],
+  [47,"neoadjuvant therapy","新辅助治疗"],
+  [48,"first-line therapy","一线治疗"],
+  [49,"palliative therapy","姑息治疗"],
+  [50,"clinical trial","临床试验"],
+  [51,"complete response (CR)","完全缓解"],
+  [52,"partial response (PR)","部分缓解"],
+  [53,"stable disease (SD)","疾病稳定"],
+  [54,"progressive disease (PD)","疾病进展"],
+  [55,"objective response rate (ORR)","客观缓解率"],
+  [56,"overall survival (OS)","总生存期"],
+  [57,"progression-free survival (PFS)","无进展生存期"],
+  [58,"disease-free survival (DFS)","无病生存期"],
+  [59,"adverse event","不良事件"],
+  [60,"multidisciplinary team (MDT)","多学科会诊(团队)"],
+  [61,"lung cancer","肺癌"],
+  [62,"non-small cell lung cancer (NSCLC)","非小细胞肺癌"],
+  [63,"small cell lung cancer (SCLC)","小细胞肺癌"],
+  [64,"breast cancer","乳腺癌"],
+  [65,"gastric cancer","胃癌"],
+  [66,"colorectal cancer","结直肠癌"],
+  [67,"hepatocellular carcinoma (HCC)","肝细胞癌"],
+  [68,"pancreatic cancer","胰腺癌"],
+  [69,"esophageal cancer","食管癌"],
+  [70,"nasopharyngeal carcinoma (NPC)","鼻咽癌"],
+  [71,"thyroid cancer","甲状腺癌"],
+  [72,"cervical cancer","宫颈癌"],
+  [73,"ovarian cancer","卵巢癌"],
+  [74,"endometrial cancer","子宫内膜癌"],
+  [75,"prostate cancer","前列腺癌"],
+  [76,"bladder cancer","膀胱癌"],
+  [77,"renal cell carcinoma (RCC)","肾细胞癌"],
+  [78,"leukemia","白血病"],
+  [79,"lymphoma","淋巴瘤"],
+  [80,"non-Hodgkin lymphoma (NHL)","非霍奇金淋巴瘤"],
+  [81,"multiple myeloma","多发性骨髓瘤"],
+  [82,"melanoma","黑色素瘤"],
+  [83,"glioma","胶质瘤"],
+  [84,"glioblastoma","胶质母细胞瘤"],
+  [85,"gastrointestinal stromal tumor (GIST)","胃肠道间质瘤"],
+  [86,"cancer of unknown primary","原发灶不明的肿瘤"],
+  [87,"precancerous lesion","癌前病变"],
+  [88,"dysplasia","异型增生(不典型增生)"],
+  [89,"metaplasia","化生"],
+  [90,"hyperplasia","增生"],
+  [91,"early-stage cancer","早期癌"],
+  [92,"advanced cancer","晚期癌"],
+  [93,"locally advanced","局部晚期"],
+  [94,"refractory cancer","难治性肿瘤"],
+  [95,"metastatic cancer","转移性癌"],
+  [96,"bone metastasis","骨转移"],
+  [97,"liver metastasis","肝转移"],
+  [98,"brain metastasis","脑转移"],
+  [99,"micrometastasis","微转移灶"],
+  [100,"tumor burden","肿瘤负荷"],
+  [101,"paraneoplastic syndrome","副肿瘤综合征"],
+  [102,"superior vena cava syndrome","上腔静脉综合征"],
+  [103,"spinal cord compression","脊髓压迫"],
+  [104,"tumor lysis syndrome","肿瘤溶解综合征"],
+  [105,"malignant pleural effusion","恶性胸腔积液"],
+  [106,"ascites","腹水"],
+  [107,"cachexia","恶病质"],
+  [108,"cancer pain","癌痛"],
+  [109,"performance status","体力状况评分(PS评分)"],
+  [110,"quality of life","生活质量"],
+  [111,"histopathology","组织病理学"],
+  [112,"hematoxylin-eosin (HE) staining","苏木精-伊红(HE)染色"],
+  [113,"immunohistochemistry (IHC)","免疫组织化学(免疫组化)"],
+  [114,"molecular pathology","分子病理学"],
+  [115,"frozen section","术中冰冻切片"],
+  [116,"fine-needle aspiration (FNA)","细针穿刺抽吸"],
+  [117,"core needle biopsy","空心针穿刺活检"],
+  [118,"endoscopic biopsy","内镜下活检"],
+  [119,"surgical margin","手术切缘"],
+  [120,"sentinel lymph node","前哨淋巴结"],
+  [121,"lymph node dissection","淋巴结清扫术"],
+  [122,"computed tomography (CT)","计算机断层扫描"],
+  [123,"magnetic resonance imaging (MRI)","磁共振成像"],
+  [124,"positron emission tomography (PET/CT)","正电子发射断层显像(PET/CT)"],
+  [125,"ultrasonography","超声检查"],
+  [126,"contrast-enhanced imaging","增强影像学检查"],
+  [127,"gastroscopy","胃镜"],
+  [128,"colonoscopy","结肠镜"],
+  [129,"bronchoscopy","支气管镜"],
+  [130,"cytology","细胞学检查"],
+  [131,"bone marrow aspiration / biopsy","骨髓穿刺 / 活检"],
+  [132,"complete blood count (CBC)","血常规"],
+  [133,"pancytopenia","全血细胞减少"],
+  [134,"carcinoembryonic antigen (CEA)","癌胚抗原"],
+  [135,"alpha-fetoprotein (AFP)","甲胎蛋白"],
+  [136,"carbohydrate antigen 19-9 (CA19-9)","糖类抗原19-9"],
+  [137,"cancer antigen 125 (CA125)","糖类抗原125"],
+  [138,"human papillomavirus (HPV)","人乳头瘤病毒"],
+  [139,"Helicobacter pylori","幽门螺杆菌"],
+  [140,"chronic inflammation","慢性炎症"],
+  [141,"oncogene","癌基因"],
+  [142,"proto-oncogene","原癌基因"],
+  [143,"tumor suppressor gene","抑癌基因"],
+  [144,"gain-of-function mutation","功能获得性突变"],
+  [145,"loss-of-function mutation","功能丧失性突变"],
+  [146,"driver mutation","驱动突变"],
+  [147,"passenger mutation","伴随(乘客)突变"],
+  [148,"germline mutation","胚系突变"],
+  [149,"somatic mutation","体细胞突变"],
+  [150,"point mutation","点突变"],
+  [151,"frameshift mutation","移码突变"],
+  [152,"gene amplification","基因扩增"],
+  [153,"chromosomal translocation","染色体易位"],
+  [154,"fusion gene","融合基因"],
+  [155,"copy number variation (CNV)","拷贝数变异"],
+  [156,"microsatellite instability (MSI)","微卫星不稳定"],
+  [157,"mismatch repair (MMR) system","错配修复系统"],
+  [158,"tumor mutation burden (TMB)","肿瘤突变负荷"],
+  [159,"clonal evolution","克隆演化"],
+  [160,"intratumor heterogeneity","瘤内异质性"],
+  [161,"cancer stem cell","肿瘤干细胞"],
+  [162,"cell cycle","细胞周期"],
+  [163,"cell cycle checkpoint","细胞周期检查点"],
+  [164,"cyclin-dependent kinase (CDK)","周期蛋白依赖性激酶"],
+  [165,"proliferation","增殖"],
+  [166,"apoptosis","细胞凋亡"],
+  [167,"programmed cell death","程序性细胞死亡"],
+  [168,"necrosis","坏死"],
+  [169,"autophagy","自噬"],
+  [170,"cellular senescence","细胞衰老"],
+  [171,"epithelial-mesenchymal transition (EMT)","上皮-间质转化"],
+  [172,"angiogenesis","血管生成"],
+  [173,"tumor microenvironment (TME)","肿瘤微环境"],
+  [174,"inflammation","炎症"],
+  [175,"hypoxia","缺氧"],
+  [176,"immune surveillance","免疫监视"],
+  [177,"immune evasion","免疫逃逸"],
+  [178,"immunoediting","免疫编辑"],
+  [179,"immune checkpoint","免疫检查点"],
+  [180,"PD-1 / PD-L1","程序性死亡受体1及其配体1"],
+  [181,"CTLA-4","细胞毒性T淋巴细胞抗原-4"],
+  [182,"tumor-infiltrating lymphocyte (TIL)","肿瘤浸润淋巴细胞"],
+  [183,"regulatory T cell (Treg)","调节性T细胞"],
+  [184,"myeloid-derived suppressor cell (MDSC)","髓源性抑制细胞"],
+  [185,"tumor-associated macrophage (TAM)","肿瘤相关巨噬细胞"],
+  [186,"natural killer (NK) cell","自然杀伤细胞"],
+  [187,"antigen presentation","抗原呈递"],
+  [188,"major histocompatibility complex (MHC)","主要组织相容性复合体"],
+  [189,"neoantigen","新抗原(新生抗原)"],
+  [190,"tumor antigen","肿瘤抗原"],
+  [191,"CAR-T cell therapy","嵌合抗原受体T细胞(CAR-T)治疗"],
+  [192,"oncolytic virus","溶瘤病毒"],
+  [193,"tumor vaccine","肿瘤疫苗"],
+  [194,"bispecific antibody","双特异性抗体"],
+  [195,"antibody-drug conjugate (ADC)","抗体偶联药物"],
+  [196,"tyrosine kinase inhibitor (TKI)","酪氨酸激酶抑制剂"],
+  [197,"monoclonal antibody","单克隆抗体"],
+  [198,"immune checkpoint inhibitor (ICI)","免疫检查点抑制剂"],
+  [199,"drug resistance","耐药性"],
+  [200,"multidrug resistance (MDR)","多药耐药"],
+  [201,"cross-resistance","交叉耐药"],
+  [202,"EGFR signaling pathway","EGFR信号通路"],
+  [203,"RAS/MAPK pathway","RAS/MAPK信号通路"],
+  [204,"PI3K/AKT/mTOR pathway","PI3K/AKT/mTOR信号通路"],
+  [205,"Wnt/β-catenin pathway","Wnt/β-catenin信号通路"],
+  [206,"Notch signaling pathway","Notch信号通路"],
+  [207,"Hedgehog signaling pathway","Hedgehog信号通路"],
+  [208,"TGF-β signaling","TGF-β信号通路"],
+  [209,"JAK/STAT pathway","JAK/STAT信号通路"],
+  [210,"vascular endothelial growth factor (VEGF)","血管内皮生长因子"],
+  [211,"p53 (TP53) gene","p53基因"],
+  [212,"RB gene","RB(视网膜母细胞瘤)基因"],
+  [213,"BRCA1/2 genes","BRCA1/2基因"],
+  [214,"HER2 (ERBB2)","HER2基因"],
+  [215,"receptor tyrosine kinase","受体酪氨酸激酶"],
+  [216,"signal transduction","信号转导"],
+  [217,"transcription factor","转录因子"],
+  [218,"DNA damage repair (DDR)","DNA损伤修复"],
+  [219,"genomic instability","基因组不稳定性"],
+  [220,"telomere","端粒"],
+  [221,"incidence","发病率"],
+  [222,"prevalence","患病率"],
+  [223,"mortality rate","死亡率"],
+  [224,"five-year survival rate","5年生存率"],
+  [225,"median survival time","中位生存时间"],
+  [226,"recurrence-free survival (RFS)","无复发生存期"],
+  [227,"metastasis-free survival (MFS)","无转移生存期"],
+  [228,"event-free survival (EFS)","无事件生存期"],
+  [229,"time to progression (TTP)","疾病进展时间"],
+  [230,"duration of response (DoR)","缓解持续时间"],
+  [231,"tumor doubling time","肿瘤倍增时间"],
+  [232,"epidemiology","流行病学"],
+  [233,"etiology","病因学"],
+  [234,"risk factor","危险因素"],
+  [235,"protective factor","保护因素"],
+  [236,"hereditary","遗传性"],
+  [237,"sporadic","散发性"],
+  [238,"familial aggregation","家族聚集性"],
+  [239,"hereditary cancer syndrome","遗传性肿瘤综合征"],
+  [240,"genetic counseling","遗传咨询"],
+  [241,"chemoprevention","化学预防"],
+  [242,"cancer prevention","肿瘤预防"],
+  [243,"lifestyle factor","生活方式因素"],
+  [244,"tobacco smoking","吸烟"],
+  [245,"alcohol consumption","饮酒"],
+  [246,"obesity","肥胖"],
+  [247,"radiation exposure","辐射暴露"],
+  [248,"occupational exposure","职业暴露"],
+  [249,"environmental carcinogen","环境致癌物"],
+  [250,"age-standardized rate","年龄标化率"],
+  [251,"randomized controlled trial (RCT)","随机对照试验"],
+  [252,"phase I / II / III trial","I/II/III期临床试验"],
+  [253,"placebo","安慰剂"],
+  [254,"double-blind","双盲"],
+  [255,"randomization","随机分组"],
+  [256,"intention-to-treat analysis","意向性分析"],
+  [257,"cohort study","队列研究"],
+  [258,"case-control study","病例对照研究"],
+  [259,"cross-sectional study","横断面研究"],
+  [260,"meta-analysis","荟萃分析"],
+  [261,"systematic review","系统综述"],
+  [262,"hazard ratio (HR)","风险比"],
+  [263,"odds ratio (OR)","比值比"],
+  [264,"relative risk (RR)","相对危险度"],
+  [265,"confidence interval (CI)","置信区间"],
+  [266,"p-value","p值"],
+  [267,"statistical significance","统计学意义"],
+  [268,"sample size","样本量"],
+  [269,"bias","偏倚"],
+  [270,"confounder","混杂因素"],
+  [271,"subgroup analysis","亚组分析"],
+  [272,"sensitivity analysis","敏感性分析"],
+  [273,"survival analysis","生存分析"],
+  [274,"Kaplan-Meier curve","Kaplan-Meier生存曲线"],
+  [275,"log-rank test","对数秩检验"],
+  [276,"Cox proportional hazards model","Cox比例风险模型"],
+  [277,"landmark analysis","里程碑分析"],
+  [278,"competing risk","竞争风险"],
+  [279,"next-generation sequencing (NGS)","二代测序"],
+  [280,"whole-exome sequencing (WES)","全外显子组测序"],
+  [281,"circulating tumor DNA (ctDNA)","循环肿瘤DNA"],
+  [282,"liquid biopsy","液体活检"],
+  [283,"DNA methylation","DNA甲基化"],
+  [284,"transcriptomics / RNA-seq","转录组学 / RNA测序"],
+  [285,"single-cell sequencing","单细胞测序"],
+  [286,"spatial transcriptomics","空间转录组学"],
+  [287,"proteomics","蛋白质组学"],
+  [288,"metabolomics","代谢组学"],
+  [289,"bioinformatics","生物信息学"],
+  [290,"differentially expressed genes","差异表达基因"],
+  [291,"enrichment analysis","富集分析"],
+  [292,"Gene Ontology (GO)","基因本体(GO)分析"],
+  [293,"KEGG pathway","KEGG通路数据库"],
+  [294,"cell line","细胞系"],
+  [295,"xenograft model","异种移植瘤模型"],
+  [296,"patient-derived xenograft (PDX)","人源肿瘤异种移植模型"],
+  [297,"organoid","类器官"],
+  [298,"gene knockout","基因敲除"],
+  [299,"precision medicine","精准医学"],
+  [300,"translational research","转化研究"]
+];
+
 var MIN = 60000;
 var D = [5,30,12*60,24*60,2*24*60,4*24*60,7*24*60,15*24*60];
-var KEY = 'uro300_v1';
-var WORD_N = WORDS.length;
-var wmap = {}; WORDS.forEach(function(w){ wmap[w[0]]=w; });
+var LIBS = {uro:{t:'泌尿外科高频考词 300'}, onco:{t:'肿瘤学高频考词 300'}};
+var CUR = 'uro', KEY = 'uro300_v1', WORD_N = 0, WORDS = null, wmap = {};
+function libOf(k){ return k==='onco' ? WORDS_ONCO : WORDS_URO; }
+function curKey(k){ return (k||CUR)==='uro' ? 'uro300_v1' : 'onco300_v1'; }
+function renderLibUI(){
+  document.querySelectorAll('#libSeg button').forEach(function(b){ b.classList.toggle('on', b.dataset.lib===CUR); });
+  $('libTitle').innerHTML = LIBS[CUR].t + '<small>艾宾浩斯遗忘曲线 · 面试英译中速记</small>';
+  document.title = LIBS[CUR].t + ' · 艾宾浩斯背单词';
+}
+function switchLib(k){
+  if(k===CUR || !LIBS[k]) return;
+  exitSession();
+  save();
+  CUR = k; localStorage.setItem('vocab_cur', k);
+  WORDS = libOf(CUR); KEY = curKey(CUR); WORD_N = WORDS.length;
+  wmap = {}; WORDS.forEach(function(w){ wmap[w[0]]=w; });
+  load();
+  document.querySelectorAll('#modeSeg button').forEach(function(b){ b.classList.toggle('on', b.dataset.mode===S.cfg.mode); });
+  document.querySelectorAll('#filterChips button').forEach(function(b){ b.classList.toggle('on', b.dataset.f===S.cfg.filter); });
+  $('batchSel').value = String(S.cfg.batch);
+  renderLibUI(); updateHome();
+  toast('已切换到' + LIBS[CUR].t);
+}
+CUR = localStorage.getItem('vocab_cur') || 'uro';
+if(!LIBS[CUR]) CUR = 'uro';
+WORDS = libOf(CUR); KEY = curKey(CUR); WORD_N = WORDS.length;
+wmap = {}; WORDS.forEach(function(w){ wmap[w[0]]=w; });
 function starsOf(no){ return no<=60?5 : no<=140?4 : no<=220?3 : 2; }
 function starName(no){ return ({5:'五星核心',4:'四星高频',3:'三星中频',2:'二星保底'})[starsOf(no)]; }
 
@@ -339,7 +670,7 @@ function exportData(){
   var d=new Blob([JSON.stringify(S,null,1)],{type:'application/json'});
   var a=document.createElement('a');
   a.href=URL.createObjectURL(d);
-  a.download='背单词进度_'+new Date().toISOString().slice(0,10)+'.json';
+  a.download='背单词进度_'+CUR+'_'+new Date().toISOString().slice(0,10)+'.json';
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   toast('已导出进度文件');
 }
@@ -347,7 +678,7 @@ function importData(inp){
   var f=inp.files[0]; if(!f) return;
   var rd=new FileReader();
   rd.onload=function(){
-    try{ var o=JSON.parse(rd.result); if(!o.w || !o.cfg) throw 0; S=o; save(); updateHome(); toast('导入成功'); }
+    try{ var o=JSON.parse(rd.result); if(!o.w || !o.cfg) throw 0; S=o; save(); updateHome(); toast('导入成功(当前为'+LIBS[CUR].t+')'); }
     catch(e){ toast('文件格式不正确'); }
   };
   rd.readAsText(f); inp.value='';
@@ -376,6 +707,7 @@ $('btnExport').onclick=exportData;
 $('btnImport').onclick=function(){ $('imp').click(); };
 $('imp').onchange=function(){ importData(this); };
 $('btnReset').onclick=resetAll;
+document.querySelectorAll('#libSeg button').forEach(function(b){ b.onclick=function(){ switchLib(b.dataset.lib); }; });
 $('speakBtn').onclick=function(){ if(sess){ var wd=wmap[sess.ids[sess.pos]]; speak(wd[1]); } };
 $('ansText').onclick=function(){ if(sess){ var wd=wmap[sess.ids[sess.pos]]; speak(wd[1]); } };
 $('prompt').onclick=reveal;
